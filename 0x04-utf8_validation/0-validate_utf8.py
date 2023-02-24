@@ -11,6 +11,8 @@ def validUTF8(data):
         for i in range(7, -1, -1):
             if dig & (1 << i):
                 count += 1
+            else:
+                break
         return count
 
     count = 0
@@ -18,7 +20,7 @@ def validUTF8(data):
         if not count:
             count = counts(j)
             if count == 0:
-                return
+                continue
             if count == 1 or count > 4:
                 return False
             count -= 1
@@ -27,3 +29,4 @@ def validUTF8(data):
             if counts(j) != 1:
                 return False
     return count == 0
+    
