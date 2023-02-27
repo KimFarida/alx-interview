@@ -29,5 +29,4 @@ def validUTF8(data):
             if counts(j) != 1:
                 return False
     return count == 0
-    
-    
+
